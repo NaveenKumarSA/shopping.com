@@ -11,66 +11,66 @@ function App() {
   const [products] = useState([
     {
       name: "Mi LED tv",
-      cost: "INR 13,339.99",
+      cost: " 13,339.99",
       img:
         "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS36-0nXIiIkI68AeMLreigbhAwttO01-WmHFWazyOEc-o_7j73tL3jnQBUzySCODWRLfYxU2dGJA&usqp=CAc",
     },
     {
       name: "Sanitizer Kit",
-      cost: "INR 1,039.49",
+      cost: " 1,039.49",
       img:
         "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRQ5gIIMfECipI4w3uwRsCII9GlRSO0ffXlQRta5RssPN-4KTUZZ6dxOWr8JgoYAlutp1kbiTyb0Q&usqp=CAc",
     },
     {
       name: "Digital LED Alarm clock ",
-      cost: "INR 1039.79",
+      cost: " 1039.79",
       img:
         "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSfQ4pRHvb1p5mz21oAr0sZVaI0pOREao-LafspnqgmAtc2yY3Vrek-mzc5oGMkzfgBD6SLIU-i-Ep6gUYsYUebGi4mb_8e3GSG0JUMVPU&usqp=CAc",
     },
     {
       name: "AA Battery",
-      cost: "INR 9.9",
+      cost: " 9.9",
       img: "https://5.imimg.com/data5/JV/CY/MY-21893711/dura-cell-500x500.jpg",
     },
     {
       name: " Blanket",
-      cost: "INR 999",
+      cost: " 999",
       img:
         "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR26NyqP0PHOgqz_HiiwHFwnY0kLS5Ovin7COGUi0dTzJhMr2FOZfFQXSd7cYsNG9ARHS_keUnF&usqp=CAc",
     },
     {
       name: "Tooth Brush",
-      cost: "INR 39.99",
+      cost: " 39.99",
       img:
         "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT6jju1XMGvTd5xR_ycthkHu9X_V7Dmewb3zUltDOWVNpE04HCR_xG-fL0RszqL2IJjrOHsgfnZRQk&usqp=CAc",
     },
     {
       name: "Tooth Brush",
-      cost: "INR 49.99",
+      cost: " 49.99",
       img:
         "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT6jju1XMGvTd5xR_ycthkHu9X_V7Dmewb3zUltDOWVNpE04HCR_xG-fL0RszqL2IJjrOHsgfnZRQk&usqp=CAc",
     },
     {
       name: "Mi LED tv",
-      cost: "INR 13,339.99",
+      cost: " 13,339.99",
       img:
         "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS36-0nXIiIkI68AeMLreigbhAwttO01-WmHFWazyOEc-o_7j73tL3jnQBUzySCODWRLfYxU2dGJA&usqp=CAc",
     },
     {
       name: "Sanitizer Kit",
-      cost: "INR 1,039.49",
+      cost: " 1,039.49",
       img:
         "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRQ5gIIMfECipI4w3uwRsCII9GlRSO0ffXlQRta5RssPN-4KTUZZ6dxOWr8JgoYAlutp1kbiTyb0Q&usqp=CAc",
     },
     {
       name: "Digital LED Alarm clock ",
-      cost: "INR 1039.79",
+      cost: " 1039.79",
       img:
         "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSfQ4pRHvb1p5mz21oAr0sZVaI0pOREao-LafspnqgmAtc2yY3Vrek-mzc5oGMkzfgBD6SLIU-i-Ep6gUYsYUebGi4mb_8e3GSG0JUMVPU&usqp=CAc",
     },
     {
       name: " Blanket",
-      cost: "INR 899",
+      cost: " 899",
       img:
         "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR26NyqP0PHOgqz_HiiwHFwnY0kLS5Ovin7COGUi0dTzJhMr2FOZfFQXSd7cYsNG9ARHS_keUnF&usqp=CAc",
     },
@@ -99,7 +99,7 @@ function App() {
           {products.map((product, idx) => (
             <div className="pro-card" key={idx}>
               <h2 className="card-name">{product.name}</h2>
-              <h4>{product.cost}</h4>
+              <h4> INR {product.cost}</h4>
               <img className="" src={product.img} alt={product.name} />
               <br></br>
               <button className="topBtn" onClick={() => addToCart(product)}>
@@ -113,24 +113,28 @@ function App() {
   };
   // This is going to render the cart
   const renderCart = () => {
+    var total=0; 
     return (
       <>
         <h1>Your Cart</h1>
-        <div className="products">
-          {cart.map((product, idx) => (
-            <div className="pro-card" key={idx}>
-              <h2 className="card-name">{product.name}</h2>
-              <h4>{product.cost}</h4>
-              <img className="" src={product.img} alt={product.name} />
-              <br></br>
-              <button
-                className="topBtn"
-                onClick={() => removeFromCart(product)}
-              >
-                Remove
-              </button>
-            </div>
-          ))}
+        <div className="container">
+          <div className="products col-6 ">
+            {cart.map((product, idx) => (
+              <div className="pro-card" key={idx}>
+                <h2 className="card-name">{product.name}</h2>
+                <h4> INR {product.cost}</h4>
+                <img className="" src={product.img} alt={product.name} />
+                <br></br>
+                <button
+                  className="topBtn"
+                  onClick={() => removeFromCart(product)}
+                >
+                  Remove
+                </button>
+                
+              </div>
+            ))}
+          </div>
         </div>
       </>
     );
